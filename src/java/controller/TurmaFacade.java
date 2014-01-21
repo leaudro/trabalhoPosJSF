@@ -1,4 +1,4 @@
-package facade;
+package controller;
 
 import dto.TurmaDTO;
 import java.util.List;
@@ -36,7 +36,7 @@ public class TurmaFacade {
     
     public String preparaInclusao() {
         turmaSelecionada = new TurmaDTO();
-        return "vaiParaInclusao";
+        return "NovaTurma";
     }
     
     public String incluiTurma() {
