@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <managed-bean>
+        <managed-bean-name>turmaFacade</managed-bean-name>
+        <managed-bean-class>controller.TurmaFacade</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/turma/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>NovaTurma</from-outcome>
+            <to-view-id>/turma/novaTurma.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/turma/novaTurma.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Voltar</from-outcome>
+            <to-view-id>/turma/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
