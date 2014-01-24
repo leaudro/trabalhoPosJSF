@@ -2,42 +2,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Home - Projeto Pós</title>
         <link rel="stylesheet" type="text/css" href="mycustomcss.css"/>
     </h:head>
     <h:body>
-        <p:layout fullPage="true"> 
-            <p:layoutUnit position="north">
-                <h1>Bem-vindo ao nosso projeto!</h1>
+        <p:layout style="width:800px;margin-left:auto;margin-right: auto"> 
+            <p:layoutUnit position="north" resizable="true">
+                <h1>Escola Sábios de TI</h1>
             </p:layoutUnit>
-            <p:layoutUnit position="center" resizable="true">
+            <p:layoutUnit position="center" resizable="true" style="height: 600px">
                 <h:form>
-                    <table>
-                        <tr>
-                            <td style="text-align: right">
-                                <p:outputLabel value="Login: "/> 
-                            </td>
-                            <td>
-                                <p:inputText maxlength="10"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: right">
-                                <p:outputLabel value="Senha: "/> 
-                            </td>
-                            <td>
-                                <p:inputText maxlength="25"/>
-                            </td>        
-                        </tr>
-                        <tr>
-                            <td>
-                                <p:commandButton value="Login"/> 
-                            </td>
-                        </tr>
-                    </table>
-                    <br/>
+                    <p:panelGrid columns="2" style="width:400px;margin-left:auto;margin-right: auto">  
+                        <f:facet name="header">  
+                            Por favor, faça o login
+                        </f:facet>  
+                        <p:outputLabel value="Login: "/> 
+                        <p:inputText maxlength="10" value="#{userFacade.username}"/>
+
+                        <p:outputLabel value="Senha: "/> 
+                        <p:inputText maxlength="25" value="#{userFacade.password}" type="password"/>
+
+                        <f:facet name="footer">
+                            <p:commandButton ajax="false" value="Login" action="#{userFacade.login()}"/> 
+                            <p:outputLabel value="#{userFacade.errorMessage}"/> 
+                        </f:facet>  
+                    </p:panelGrid>  
                 </h:form>
             </p:layoutUnit>
         </p:layout>

@@ -23,7 +23,7 @@ public class TurmaFacade {
     public void setTurmaSelecionada(TurmaDTO turmaSelecionada) {
         this.turmaSelecionada = turmaSelecionada;
     }
-
+    
     public List<TurmaDTO> getListaTurmas() {
         if (listaTurmas == null) {
             try {
