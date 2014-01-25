@@ -21,7 +21,15 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center" resizable="true">
-                    
+                    <h:form>
+                        <h:outputLabel>Nome da turma: </h:outputLabel>
+                        <h:inputText id="nomeTurma" value="#{turmaFacade.turmaSelecionada.nomeTurma}"></h:inputText>
+                        <br/>
+                        <h:outputLabel>Série da turma: </h:outputLabel>
+                        <h:inputText id="serieTurma" value="#{turmaFacade.turmaSelecionada.serie}"></h:inputText>
+                        <br/>
+                        <h:commandButton value="Cadastrar" action="#{turmaFacade.incluiTurma()}"/>
+                    </h:form>
                 </p:layoutUnit>
             </p:layout>
         </h:form>

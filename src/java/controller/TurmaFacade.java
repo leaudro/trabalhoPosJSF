@@ -44,7 +44,7 @@ public class TurmaFacade {
             turmaDao.save(turmaSelecionada);
         } catch (Exception ex) {}
         listaTurmas = null;
-        return "voltaParaInicioTurma";
+        return "voltar";
     }
     
     public String alteraTurma() {
