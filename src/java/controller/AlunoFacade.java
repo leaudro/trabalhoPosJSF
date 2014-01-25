@@ -66,7 +66,7 @@ public class AlunoFacade {
             alunoDao.update(alunoSelecionado);
         } catch (Exception ex) {}
         listaAlunos = null;
-        return "voltaParaInicioAluno";
+        return "Voltar";
     }
 
     public String criaOuAlteraAluno() {
@@ -83,5 +83,12 @@ public class AlunoFacade {
         } catch (Exception ex) {}
         listaAlunos = null;
         return "refresh";
+    }
+    
+    public String nomeTelaAluno() {
+        if (alunoSelecionado == null || alunoSelecionado.getId() == 0) {
+            return "Novo Aluno";
+        }
+        return "Editar Aluno";
     }
 }
