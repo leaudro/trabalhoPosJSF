@@ -38,8 +38,9 @@ public class AlunoFacade {
     public List<AlunoDTO> getListaAlunos() {
         if (listaAlunos == null) {
             try {
-                listaAlunos = alunoDao.getAll();
+                listaAlunos = alunoDao.getAll(TurmaFacade.getInstance().getTurmaSelecionada());
             } catch (Exception ex) {
+                ex.printStackTrace();
             }
         }
         return listaAlunos;

@@ -2,6 +2,7 @@
 package model;
 
 import dto.AlunoDTO;
+import dto.TurmaDTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -65,10 +66,11 @@ public class AlunoDAO extends DaoUtil {
         return ret;
         }
      
-        public List<AlunoDTO> getAll() throws Exception {
+        public List<AlunoDTO> getAll(TurmaDTO turma) throws Exception {
         
         List<AlunoDTO> ret = new ArrayList<AlunoDTO>();
-        PreparedStatement ps = getPreparedStatement("SELECT ID, NOME_ALUNO, DATA_NASC, ID_TURMA FROM SA.ALUNO");
+        PreparedStatement ps = getPreparedStatement("SELECT ID, NOME_ALUNO, DATA_NASC, ID_TURMA FROM SA.ALUNO WHERE ID_TURMA = ?");
+        ps.setInt(1, turma.getId());
         ResultSet query = ps.executeQuery();
         while (query.next()) {
             ret.add(new AlunoDTO(query.getInt(1), query.getString(2), query.getDate(3), query.getInt(4)));

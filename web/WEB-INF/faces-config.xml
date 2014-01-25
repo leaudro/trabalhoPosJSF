@@ -81,23 +81,12 @@
             <from-outcome>Voltar</from-outcome>
             <to-view-id>/turma/view.xhtml</to-view-id>
         </navigation-case>
-        <navigation-case>
-            <from-outcome>UpdateNotas</from-outcome>
-            <to-view-id>/boletim/edit.xhtml</to-view-id>
-        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/aluno/novoAluno.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>Voltar</from-outcome>
             <to-view-id>/turma/view.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/boletim/edit.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>Voltar</from-outcome>
-            <to-view-id>/boletim/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
