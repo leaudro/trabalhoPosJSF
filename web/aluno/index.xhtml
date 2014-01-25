@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Projeto Pós - Alunos</title>
+        <link rel="stylesheet" type="text/css" href="mycustomcss.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:layout fullPage="true"> 
+                <p:layoutUnit position="north">
+                    <h1>Lista de Alunos</h1>
+                </p:layoutUnit>
+                <p:layoutUnit position="west">
+                    <p:menu>
+                        <p:menuitem value="Novo Aluno" action="#{alunoFacade.preparaInclusao()}" ajax="false"/>
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" resizable="true">
+                    <p:dataTable var="aluno" value="#{alunoFacade.listaAlunos}" emptyMessage="Nenhuma aluno foi cadastrado.">
+                        <f:facet name="header">
+                            Lista de alunos
+                        </f:facet>
+                        <p:column headerText="Aluno" width="30%">
+                            <p:outputLabel value="#{aluno.nome_Aluno}"/>
+                        </p:column>
+                        <p:column headerText="Data Nascimento" width="20%">
+                            <p:outputLabel value="#{aluno.data_nasc}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Ações" width="50%">
+                            
+                        </p:column>
+                    </p:dataTable>
+                </p:layoutUnit>
+            </p:layout>
+        </h:form>
+    </h:body>
+</html>

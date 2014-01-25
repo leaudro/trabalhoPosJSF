@@ -37,7 +37,7 @@ public class AlunoFacade {
     
     public String preparaInclusao() {
         alunoSelecionado = new AlunoDTO();
-        return "NovaAluno";
+        return "NovoAluno";
     }
     
     public String incluiAluno() {
@@ -45,7 +45,7 @@ public class AlunoFacade {
             alunoDao.save(alunoSelecionado);
         } catch (Exception ex) {}
         listaAlunos = null;
-        return "voltaParaInicioAluno";
+        return "Voltar";
     }
     
     public String alteraAluno() {

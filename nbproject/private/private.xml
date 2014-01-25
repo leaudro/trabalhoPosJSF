@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/F/Documents/Fabio/Pos%20Graduação/Algoritmo%20e%20prog%20OO/TrabalhoPos/src/java/dto/AlunoDTO.java</file>
+            <file>file:/C:/Users/F/Documents/Fabio/Pos%20Graduação/Algoritmo%20e%20prog%20OO/TrabalhoPos/src/java/model/AlunoDAO.java</file>
+            <file>file:/C:/Users/F/Documents/Fabio/Pos%20Graduação/Algoritmo%20e%20prog%20OO/TrabalhoPos/web/aluno/index.xhtml</file>
+            <file>file:/C:/Users/F/Documents/Fabio/Pos%20Graduação/Algoritmo%20e%20prog%20OO/TrabalhoPos/src/java/controller/AlunoFacade.java</file>
+            <file>file:/C:/Users/F/Documents/Fabio/Pos%20Graduação/Algoritmo%20e%20prog%20OO/TrabalhoPos/web/aluno/novoAluno.xhtml</file>
+            <file>file:/C:/Users/F/Documents/Fabio/Pos%20Graduação/Algoritmo%20e%20prog%20OO/TrabalhoPos/web/WEB-INF/faces-config.xml</file>
+        </group>
     </open-files>
 </project-private>

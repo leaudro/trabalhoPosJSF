@@ -4,6 +4,11 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <managed-bean>
+        <managed-bean-name>alunoFacade</managed-bean-name>
+        <managed-bean-class>controller.AlunoFacade</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>turmaFacade</managed-bean-name>
         <managed-bean-class>controller.TurmaFacade</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
@@ -36,6 +41,20 @@
         <navigation-case>
             <from-outcome>refresh</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/aluno/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>NovoAluno</from-outcome>
+            <to-view-id>/aluno/novoAluno.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/aluno/novoAluno.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Voltar</from-outcome>
+            <to-view-id>/aluno/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

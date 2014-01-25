@@ -9,10 +9,11 @@ import java.util.Date;
 
 public class AlunoDTO {
     
-    private int id;
+  
     private int id_turma;
     private String nome_aluno;
     private Date data_nasc;
+    private int id;
     
     
    public AlunoDTO(){
@@ -28,14 +29,14 @@ public class AlunoDTO {
        
    }
 
-    public int getId() {
+   
+public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-
     public int getId_turma() {
         return id_turma;
     }
