@@ -17,7 +17,7 @@
                 <p:layoutUnit position="west">
                     <p:menu>
                         <p:menuitem value="Voltar" action="Voltar" ajax="false"/>
-                        <p:menuitem value="Atualizar notas" action="UpdateNotas" ajax="false"/>
+                        <p:menuitem value="Atualizar notas" action="Voltar" ajax="false"/>
                     </p:menu>
                 </p:layoutUnit>
 
@@ -41,8 +41,16 @@
                         <p:column headerText="4a" width="10%">
                             <p:outputLabel value="#{boletim.nota4}"/>
                         </p:column>
-                        <p:column headerText="Status" width="30%">
-                            <p:outputLabel value="#{boletim.status}"/>
+                        <p:column headerText="Ações" width="30%">
+                            <p:commandLink value="Detalhar" ajax="false" action="gotoBoletim" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{boletimFacade.boletimSelecionado}" value="#{boletim}"/>
+                            </p:commandLink>
+                            <p:commandLink value="Alterar"  ajax="false" action="gotoEdit" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{boletimFacade.boletimSelecionado}" value="#{boletim}"/>
+                            </p:commandLink>
+                            <p:commandLink value="Excluir" ajax="false" action="#{alunoFacade.deletaAluno()}" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{boletimFacade.boletimSelecionado}" value="#{boletim}"/>
+                            </p:commandLink>
                         </p:column>
                     </p:dataTable>
                 </p:layoutUnit>

@@ -7,12 +7,10 @@ public class BoletimDTO {
 
     private AlunoDTO aluno;
     private MateriaDTO materia;
-    private Integer nota1;
-    private Integer nota2;
-    private Integer nota3;
-    private Integer nota4;
-    
-    private String status;
+    private int nota1;
+    private int nota2;
+    private int nota3;
+    private int nota4;
 
     public BoletimDTO() {
 
@@ -23,7 +21,7 @@ public class BoletimDTO {
         this.materia = materia;
     }
 
-    public BoletimDTO(AlunoDTO aluno, MateriaDTO materia, Integer nota1, Integer nota2, Integer nota3, Integer nota4) {
+    public BoletimDTO(AlunoDTO aluno, MateriaDTO materia, int nota1, int nota2, int nota3, int nota4) {
         this.aluno = aluno;
         this.materia = materia;
         this.nota1 = nota1;
@@ -48,47 +46,38 @@ public class BoletimDTO {
         this.materia = materia;
     }
 
-    public Integer getNota1() {
+    public int getNota1() {
         return nota1;
     }
 
-    public void setNota1(Integer nota1) {
+    public void setNota1(int nota1) {
         this.nota1 = nota1;
     }
 
-    public Integer getNota2() {
+    public int getNota2() {
         return nota2;
     }
 
-    public void setNota2(Integer nota2) {
+    public void setNota2(int nota2) {
         this.nota2 = nota2;
     }
 
-    public Integer getNota3() {
+    public int getNota3() {
         return nota3;
     }
 
-    public void setNota3(Integer nota3) {
+    public void setNota3(int nota3) {
         this.nota3 = nota3;
     }
 
-    public Integer getNota4() {
+    public int getNota4() {
         return nota4;
     }
 
-    public void setNota4(Integer nota4) {
+    public void setNota4(int nota4) {
         this.nota4 = nota4;
     }
 
-    public String getStatus() {
-        try {
-            return nota1 + nota2 + nota3 + nota4 / 4 >= 7 ? "Aprovado" : "Reprovado";
-        } catch (Exception ex){
-            return "";
-        }
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    
+    
 }
