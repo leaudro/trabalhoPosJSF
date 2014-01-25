@@ -14,7 +14,7 @@ public class TurmaDAO extends DaoUtil {
 
     public boolean save(TurmaDTO dto) throws Exception {
         PreparedStatement ps;
-        ps = getPreparedStatement("INSERT INTO SA.TURMA VALUES(?,?)");
+        ps = getPreparedStatement("INSERT INTO SA.TURMA (NOME_TURMA, SERIE) VALUES(?,?)");
         ps.setString(1, dto.getNomeTurma());
         ps.setString(2, dto.getSerie());
         boolean ret = ps.execute();

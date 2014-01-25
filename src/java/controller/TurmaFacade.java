@@ -39,12 +39,31 @@ public class TurmaFacade {
         return "NovaTurma";
     }
     
+    public String detalhaTurma() {
+        try {
+            //TODO puxar alunos pela turma
+        } catch (Exception ex) {}
+        listaTurmas = null;
+        return "gotoDetail";
+    }
+    
+    public String criaOuAlteraTurma() {
+        if (turmaSelecionada == null || turmaSelecionada.getId() == 0) {
+            return incluiTurma();
+        } else {
+            return alteraTurma();
+        }
+    }
+    
     public String incluiTurma() {
         try {
             turmaDao.save(turmaSelecionada);
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+            System.out.print(ex);
+            ex.printStackTrace();
+        }
         listaTurmas = null;
-        return "voltar";
+        return "Voltar";
     }
     
     public String alteraTurma() {
@@ -52,7 +71,7 @@ public class TurmaFacade {
             turmaDao.update(turmaSelecionada);
         } catch (Exception ex) {}
         listaTurmas = null;
-        return "voltaParaInicioTurma";
+        return "Voltar";
     }
     
     public String deletaTurma() {
@@ -61,5 +80,12 @@ public class TurmaFacade {
         } catch (Exception ex) {}
         listaTurmas = null;
         return "refresh";
+    }
+    
+    public String nomeTelaNovaTurma() {
+        if (turmaSelecionada == null || turmaSelecionada.getId() == 0) {
+            return "Nova Turma";
+        }
+        return "Editar Turma";
     }
 }

@@ -6,11 +6,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Projeto Pós - Turmas</title>
-        <link rel="stylesheet" type="text/css" href="mycustomcss.css"/>
+        <link rel="stylesheet" type="text/css" href="../mycustomcss.css"/>
     </h:head>
     <h:body>
         <h:form>
-            <p:layout fullPage="true"> 
+            <p:layout styleClass="pagelayout"> 
                 <p:layoutUnit position="north">
                     <h1>Lista de turmas</h1>
                 </p:layoutUnit>
@@ -32,7 +32,15 @@
                             <p:outputLabel value="#{turma.nomeTurma}"/>
                         </p:column>
                         <p:column headerText="Ações" width="50%">
-                            
+                            <p:commandLink value="Detalhar" ajax="false" action="#{turmaFacade.detalhaTurma()}" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
+                            </p:commandLink>
+                            <p:commandLink value="Alterar" ajax="false" action="gotoEdit" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
+                            </p:commandLink>
+                            <p:commandLink value="Excluir" ajax="false" action="#{turmaFacade.deletaTurma()}" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
+                            </p:commandLink>
                         </p:column>
                     </p:dataTable>
                 </p:layoutUnit>

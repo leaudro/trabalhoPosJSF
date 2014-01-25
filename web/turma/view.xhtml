@@ -5,37 +5,37 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Projeto Pós - Turmas</title>
+        <title>Projeto Pós - Nova Turma</title>
         <link rel="stylesheet" type="text/css" href="../mycustomcss.css"/>
     </h:head>
     <h:body>
         <h:form>
-            <p:layout styleClass="pagelayout"> 
+            <p:layout styleClass="pagelayout">
                 <p:layoutUnit position="north">
-                    <h1>Lista de turmas</h1>
+                    <h1>#{turmaFacade.turmaSelecionada.serie} - Turma #{turmaFacade.turmaSelecionada.nomeTurma}</h1>
                 </p:layoutUnit>
                 <p:layoutUnit position="west">
                     <p:menu>
-                        <p:menuitem value="Nova Turma" action="#{turmaFacade.preparaInclusao()}" ajax="false"/>
+                        <p:menuitem value="Voltar" action="Voltar" ajax="false"/>
                     </p:menu>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center" resizable="true">
-                    <p:dataTable var="turma" value="#{turmaFacade.listaTurmas}" emptyMessage="Nenhuma turma foi cadastrada.">
+                    <p:dataTable var="aluno" value="#{alunoFacade.listaAlunos}" emptyMessage="Não existem alunos cadastrados nesta turma.">
                         <f:facet name="header">
-                            Lista de turmas
+                            Alunos
                         </f:facet>
-                        <p:column headerText="Série" width="20%">
-                            <p:outputLabel value="#{turma.serie}"/>
+                        <p:column headerText="Nome" width="20%">
+                            <p:outputLabel value="#{aluno.nome_aluno}"/>
                         </p:column>
                         <p:column headerText="Turma" width="30%">
-                            <p:outputLabel value="#{turma.nomeTurma}"/>
+                            <p:outputLabel value="#{aluno.data_nasc}"/>
                         </p:column>
                         <p:column headerText="Ações" width="50%">
-                            <p:commandLink value="Detalhar" ajax="false" action="#{turmaFacade.detalhaTurma()}" style="padding: 10px">
+                            <p:commandLink value="Detalhar" ajax="false" action="gotoDetail" style="padding: 10px">
                                 <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
                             </p:commandLink>
-                            <p:commandLink value="Alterar" ajax="false" action="gotoEdit" style="padding: 10px">
+                            <p:commandLink value="Alterar"  ajax="false" action="gotoEdit" style="padding: 10px">
                                 <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
                             </p:commandLink>
                             <p:commandLink value="Excluir" ajax="false" action="#{turmaFacade.deletaTurma()}" style="padding: 10px">

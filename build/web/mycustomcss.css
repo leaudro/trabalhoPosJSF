@@ -11,3 +11,9 @@ and open the template in the editor.
 .center {
     margin: auto;
 }
+
+.pagelayout {
+    width:800px;
+    margin-left:auto;
+    margin-right: auto;
+}

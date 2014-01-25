@@ -6,13 +6,13 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Projeto Pós - Nova Turma</title>
-        <link rel="stylesheet" type="text/css" href="mycustomcss.css"/>
+        <link rel="stylesheet" type="text/css" href="../mycustomcss.css"/>
     </h:head>
     <h:body>
         <h:form>
-            <p:layout fullPage="true"> 
+            <p:layout styleClass="pagelayout"> 
                 <p:layoutUnit position="north">
-                    <h1>Nova Turma</h1>
+                    <h1>#{turmaFacade.nomeTelaNovaTurma()}</h1>
                 </p:layoutUnit>
                 <p:layoutUnit position="west">
                     <p:menu>
@@ -21,15 +21,18 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center" resizable="true">
-                    <h:form>
-                        <h:outputLabel>Nome da turma: </h:outputLabel>
-                        <h:inputText id="nomeTurma" value="#{turmaFacade.turmaSelecionada.nomeTurma}"></h:inputText>
-                        <br/>
+                    <p:panelGrid columns="2" style="width:400px;margin-left:auto;margin-right: auto">  
                         <h:outputLabel>Série da turma: </h:outputLabel>
-                        <h:inputText id="serieTurma" value="#{turmaFacade.turmaSelecionada.serie}"></h:inputText>
-                        <br/>
-                        <h:commandButton value="Cadastrar" action="#{turmaFacade.incluiTurma()}"/>
-                    </h:form>
+                        <h:inputText  maxlength="2" id="serieTurma" value="#{turmaFacade.turmaSelecionada.serie}"></h:inputText>
+                        
+                        <p:outputLabel value="Nome da turma: "/> 
+                        <h:inputText id="nomeTurma" maxlength="2" value="#{turmaFacade.turmaSelecionada.nomeTurma}"></h:inputText>
+
+                        <f:facet name="footer">
+                            <h:commandButton value="Salvar" action="#{turmaFacade.criaOuAlteraTurma()}"/>
+                            <p:outputLabel value="#{userFacade.errorMessage}"/> 
+                        </f:facet>  
+                    </p:panelGrid>
                 </p:layoutUnit>
             </p:layout>
         </h:form>

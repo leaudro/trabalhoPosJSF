@@ -24,6 +24,14 @@
             <from-outcome>NovaTurma</from-outcome>
             <to-view-id>/turma/novaTurma.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>gotoDetail</from-outcome>
+            <to-view-id>/turma/view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>gotoEdit</from-outcome>
+            <to-view-id>/turma/novaTurma.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/turma/novaTurma.xhtml</from-view-id>
