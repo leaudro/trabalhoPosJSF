@@ -4,13 +4,23 @@ package controller;
 import dto.AlunoDTO;
 import java.util.List;
 import model.AlunoDAO;
+import model.BoletimDAO;
 
 /**
  *
  * @author Fábio Brito
  */
 public class AlunoFacade {
+    private static AlunoFacade instance;
 
+    static AlunoFacade getInstance() {
+        return instance;
+    }
+
+    public AlunoFacade() {
+        AlunoFacade.instance = this;
+    }
+    
     private final AlunoDAO alunoDao = new AlunoDAO();
     
     private AlunoDTO alunoSelecionado;
@@ -21,7 +31,7 @@ public class AlunoFacade {
         return alunoSelecionado;
     }
 
-    public void setAlunoSelecionada(AlunoDTO alunoSelecionado) {
+    public void setAlunoSelecionado(AlunoDTO alunoSelecionado) {
         this.alunoSelecionado = alunoSelecionado;
     }
 
@@ -42,7 +52,10 @@ public class AlunoFacade {
     
     public String incluiAluno() {
         try {
+            alunoSelecionado.setId_turma(TurmaFacade.getInstance().getTurmaSelecionada().getId());
             alunoDao.save(alunoSelecionado);
+            BoletimDAO dao = new BoletimDAO();
+            dao.createBoletim(alunoSelecionado);
         } catch (Exception ex) {}
         listaAlunos = null;
         return "Voltar";
@@ -54,6 +67,14 @@ public class AlunoFacade {
         } catch (Exception ex) {}
         listaAlunos = null;
         return "voltaParaInicioAluno";
+    }
+
+    public String criaOuAlteraAluno() {
+        if (alunoSelecionado == null || alunoSelecionado.getId() == 0) {
+            return incluiAluno();
+        } else {
+            return alteraAluno();
+        }
     }
     
     public String deletaAluno() {

@@ -10,12 +10,24 @@ import model.TurmaDAO;
  */
 public class TurmaFacade {
 
+    private static TurmaFacade instance;
+    
+    static TurmaFacade getInstance() {
+        return instance;
+    }
+    
     private final TurmaDAO turmaDao = new TurmaDAO();
     
     private TurmaDTO turmaSelecionada;
     
     private List<TurmaDTO> listaTurmas;
 
+    public TurmaFacade() {
+        TurmaFacade.instance = this;
+    }
+
+    
+    
     public TurmaDTO getTurmaSelecionada() {
         return turmaSelecionada;
     }

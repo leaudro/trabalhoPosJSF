@@ -14,6 +14,11 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
+        <managed-bean-name>boletimFacade</managed-bean-name>
+        <managed-bean-class>controller.BoletimFacade</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
         <managed-bean-name>userFacade</managed-bean-name>
         <managed-bean-class>controller.UserFacade</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
@@ -52,17 +57,43 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/aluno/index.xhtml</from-view-id>
+        <from-view-id>/turma/view.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>gotoBoletim</from-outcome>
+            <to-view-id>/boletim/index.xhtml</to-view-id>
+        </navigation-case>
         <navigation-case>
             <from-outcome>NovoAluno</from-outcome>
             <to-view-id>/aluno/novoAluno.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Voltar</from-outcome>
+            <to-view-id>/turma/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/boletim/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Voltar</from-outcome>
+            <to-view-id>/turma/view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>UpdateNotas</from-outcome>
+            <to-view-id>/boletim/edit.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/aluno/novoAluno.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>Voltar</from-outcome>
-            <to-view-id>/aluno/index.xhtml</to-view-id>
+            <to-view-id>/turma/view.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/boletim/edit.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Voltar</from-outcome>
+            <to-view-id>/boletim/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

@@ -6,13 +6,13 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Projeto Pós - Novo Aluno</title>
-        <link rel="stylesheet" type="text/css" href="mycustomcss.css"/>
+        <link rel="stylesheet" type="text/css" href="../mycustomcss.css"/>
     </h:head>
     <h:body>
         <h:form>
-            <p:layout fullPage="true"> 
+            <p:layout styleClass="pagelayout"> 
                 <p:layoutUnit position="north">
-                    <h1>Novo Aluno</h1>
+                    <h1>Matricular novo aluno</h1>
                 </p:layoutUnit>
                 <p:layoutUnit position="west">
                     <p:menu>
@@ -21,13 +21,18 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center" resizable="true">
-                    <h:outputLabel>
-                        Nome do Aluno
-                    </h:outputLabel><h:inputText value="#{alunoFacade.alunoSelecionado.nome_aluno}"></h:inputText>
-                    <br>
-                    <h:outputLabel>
-                        Data Nascimento
-                    </h:outputLabel><h:inputText value="#{alunoFacade.alunoSelecionado.data_nasc}"></h:inputText>
+                    <p:panelGrid columns="2" style="width:400px;margin-left:auto;margin-right: auto">  
+                        <p:outputLabel value="Nome do aluno: "/> 
+                        <h:inputText id="nomeAluno" value="#{alunoFacade.alunoSelecionado.nome_aluno}"/>
+                        
+                        <p:outputLabel value="Data de Nascimento: "/> 
+                        <p:calendar id="popupCal" value="#{alunoFacade.alunoSelecionado.data_nasc}" pattern="dd/MM/yyyy"/>
+
+                        <f:facet name="footer">
+                            <h:commandButton value="Salvar" action="#{alunoFacade.criaOuAlteraAluno()}"/>
+                            <p:outputLabel value="#{userFacade.errorMessage}"/> 
+                        </f:facet>  
+                    </p:panelGrid>
                 </p:layoutUnit>
             </p:layout>
         </h:form>

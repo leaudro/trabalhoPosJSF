@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Projeto Pós - Boletim</title>
+        <link rel="stylesheet" type="text/css" href="../mycustomcss.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:layout styleClass="pagelayout"> 
+                <p:layoutUnit position="north">
+                    <h1>#{alunoFacade.alunoSelecionado.nome_aluno}</h1>
+                </p:layoutUnit>
+                <p:layoutUnit position="west">
+                    <p:menu>
+                        <p:menuitem value="Voltar" action="Voltar" ajax="false"/>
+                        <p:menuitem value="Atualizar notas" action="UpdateNotas" ajax="false"/>
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" resizable="true">
+                    <p:dataTable var="boletim" value="#{boletimFacade.listaBoletims}" emptyMessage="Não existem notas cadastradas para este aluno.">
+                        <f:facet name="header">
+                            Notas
+                        </f:facet>
+                        <p:column headerText="Matéria" width="30%">
+                            <p:outputLabel value="#{boletim.materia.nomeMateria}"/>
+                        </p:column>
+                        <p:column headerText="1a" width="10%">
+                            <p:outputLabel value="#{boletim.nota1}"/>
+                        </p:column>
+                        <p:column headerText="2a" width="10%">
+                            <p:outputLabel value="#{boletim.nota2}"/>
+                        </p:column>
+                        <p:column headerText="3a" width="10%">
+                            <p:outputLabel value="#{boletim.nota3}"/>
+                        </p:column>
+                        <p:column headerText="4a" width="10%">
+                            <p:outputLabel value="#{boletim.nota4}"/>
+                        </p:column>
+                        <p:column headerText="Status" width="30%">
+                            <p:outputLabel value="#{boletim.status}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:layoutUnit>
+            </p:layout>
+        </h:form>
+    </h:body>
+</html>

@@ -33,6 +33,10 @@ public class DaoUtil {
         return getConnection().prepareStatement(sql);
     }
     
+    public PreparedStatement getPreparedStatementForCreate(String sql) throws Exception {
+        return getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+    }
+    
     public void closeConnection() throws SQLException {
         if (conn != null) {
             conn.close();

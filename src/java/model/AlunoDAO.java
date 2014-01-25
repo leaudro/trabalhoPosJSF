@@ -17,12 +17,17 @@ public class AlunoDAO extends DaoUtil {
     public boolean save(AlunoDTO dto) throws Exception {
         
         PreparedStatement ps;
-        ps = getPreparedStatement("INSERT INTO SA.ALUNO VALUES(?,?,?)");
+        ps = getPreparedStatementForCreate("INSERT INTO SA.ALUNO (NOME_ALUNO, DATA_NASC, ID_TURMA) VALUES(?,?,?)");
         
         ps.setString(1, dto.getNome_aluno());
         ps.setDate(2, new java.sql.Date(dto.getData_nasc().getTime()));
         ps.setInt(3, dto.getId_turma());
-        boolean ret = ps.execute();
+        ps.executeUpdate();
+        ResultSet rs = ps.getGeneratedKeys();
+        boolean ret = rs.next();
+        if (ret) {
+            dto.setId(rs.getInt(1));
+        }
         ps.close();
         return ret;
     }

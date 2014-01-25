@@ -12,34 +12,37 @@
         <h:form>
             <p:layout styleClass="pagelayout">
                 <p:layoutUnit position="north">
-                    <h1>#{turmaFacade.turmaSelecionada.serie} - Turma #{turmaFacade.turmaSelecionada.nomeTurma}</h1>
+                    <h1>#{turmaFacade.turmaSelecionada.serie} Série - Turma #{turmaFacade.turmaSelecionada.nomeTurma}</h1>
                 </p:layoutUnit>
                 <p:layoutUnit position="west">
                     <p:menu>
+                        <p:menuitem value="Matricular aluno" action="#{alunoFacade.preparaInclusao()}" ajax="false"/>
                         <p:menuitem value="Voltar" action="Voltar" ajax="false"/>
                     </p:menu>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center" resizable="true">
-                    <p:dataTable var="aluno" value="#{alunoFacade.listaAlunos}" emptyMessage="Não existem alunos cadastrados nesta turma.">
+                    <p:dataTable var="aluno" value="#{alunoFacade.listaAlunos}" emptyMessage="Não existem alunos cadastrados nesta aluno.">
                         <f:facet name="header">
                             Alunos
                         </f:facet>
                         <p:column headerText="Nome" width="20%">
-                            <p:outputLabel value="#{aluno.nome_aluno}"/>
+                            <h:outputText value="#{aluno.nome_aluno}"/>
                         </p:column>
-                        <p:column headerText="Turma" width="30%">
-                            <p:outputLabel value="#{aluno.data_nasc}"/>
+                        <p:column headerText="Data de Nascimento" width="30%">
+                            <h:outputText value="#{aluno.data_nasc}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
                         </p:column>
                         <p:column headerText="Ações" width="50%">
-                            <p:commandLink value="Detalhar" ajax="false" action="gotoDetail" style="padding: 10px">
-                                <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
+                            <p:commandLink value="Detalhar" ajax="false" action="gotoBoletim" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{alunoFacade.alunoSelecionado}" value="#{aluno}"/>
                             </p:commandLink>
                             <p:commandLink value="Alterar"  ajax="false" action="gotoEdit" style="padding: 10px">
-                                <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
+                                <f:setPropertyActionListener target="#{alunoFacade.alunoSelecionado}" value="#{aluno}"/>
                             </p:commandLink>
-                            <p:commandLink value="Excluir" ajax="false" action="#{turmaFacade.deletaTurma()}" style="padding: 10px">
-                                <f:setPropertyActionListener target="#{turmaFacade.turmaSelecionada}" value="#{turma}"/>
+                            <p:commandLink value="Excluir" ajax="false" action="#{alunoFacade.deletaAluno()}" style="padding: 10px">
+                                <f:setPropertyActionListener target="#{alunoFacade.alunoSelecionado}" value="#{aluno}"/>
                             </p:commandLink>
                         </p:column>
                     </p:dataTable>
